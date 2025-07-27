@@ -2,24 +2,24 @@
   "name": "vision-camera-image-labeler",
   "version": "0.1.6",
   "description": "VisionCamera Frame Processor Plugin to label images using MLKit Vision",
-  "main": "lib/commonjs/index",
-  "module": "lib/module/index",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",
-  "react-native": "src/index",
+  "react-native": "src/index.ts",
   "source": "src/index",
   "files": [
     "src",
     "lib",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__",
     "android",
     "ios",
     "cpp",
     "vision-camera-image-labeler.podspec",
     "!lib/typescript/example",
     "!android/build",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "!ios/build"
   ],
   "scripts": {
     "typescript": "tsc --noEmit",
@@ -46,6 +46,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@react-native-community/bob": "^0.17.1",
     "@react-native-community/eslint-config": "^3.2.0",
     "@release-it/conventional-changelog": "^10.0.0",
     "@tsconfig/react-native": "^3.0.5",
@@ -125,6 +126,15 @@
     "useTabs": false
   },
   "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  },
+  "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
     "targets": [
